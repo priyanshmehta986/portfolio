@@ -1,0 +1,452 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap');
+*{
+  box-sizing: border-box;
+}
+*::after {
+    box-sizing: border-box;
+  }
+ 
+/* custom properties -I am defining variables so that it can be used easily throughout the css sheet*/
+:root{
+  --ff-primary:'Source Sans Pro',sans-serif;
+  --ff-secondary:'Source Code Pro',monospace ;
+
+  --fw-regular:250;
+  --fw-bold:700 ;
+
+  --clr-light:rgb(255, 255, 255);
+  --clr-dark:rgb(48, 48, 48);
+  --clr-accent:rgb(80, 180, 164);
+  --clr-darkaccent:rgb(11, 64, 80);
+
+  --fs-h1: 2.3rem;
+  --fs-h2: 1.8rem;
+  --fs-h3: 1.25rem;
+  --fs-h4:1.10rem;
+  --fs-body:1rem;
+
+}
+@media (min-width :800px){
+  :root{
+    --fs-h1:3rem;
+    --fs-h2:2.5rem;
+    --fs-h3:1.5rem;
+    --fs-h4:1.25rem;
+    --fs-body:1.25rem;
+  }
+}
+/* General Styles */
+
+body {
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+section{
+  padding: 1em 1.5em;
+}
+strong{
+  font-weight: var(--fw-bold);
+}
+
+/* Typography */
+h1,h2,h3{
+  line-height: 1;
+  margin: 0;
+}
+
+h1{font-size:var(--fs-h1);}
+h2{font-size:var(--fs-h2);}
+h3{font-size:var(--fs-h3);}
+
+.section__title{
+   margin-bottom: 0.1em;
+   font-size: var(--fs-h1);
+   /* Relative of font-size  */
+}
+.section__title--intro{
+  font-weight: var(--fw-regular);
+}
+@media (max-width:600px){
+ .section__title--intro strong{
+  display: block;
+ }
+} 
+/* so that Richa Shah ends up on a new line */
+
+
+.section__subtitle{
+  margin: 0;
+  font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,.section__subtitle--about{
+  font-family: var(--ff-secondary);
+}
+
+/* INTRO */
+ /* Navigation bar  */
+.logo{
+  display: inline-block;
+  padding-top: 0.4em;
+}
+ 
+.navbar{
+  display: inline;
+  float: right;
+  padding: 0.5%;
+}
+.navbar a {
+  color: var(--clr-dark);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+} 
+/* Change color on hover */
+.navbar a:hover {
+  background-color: var(--clr-darkaccent);
+  color: var(--clr-light);
+}
+.intro{
+  position: relative;
+  
+}
+
+/* @media(min-width:600px){
+  .intro{
+    display: grid;
+    width: min-content;
+    margin: 0 auto;
+    grid-column-gap: 1em;
+    grid-template-areas:
+    'img title'
+    'img subtitle';
+    grid-template-columns: min-content max-content;       
+    /* min-content for img,max-content for text */
+  /* }
+  .into__img{
+    grid-area: img;
+    min-width: 300px;
+  } */
+  
+  /* } */ 
+
+}
+.intro__img{
+  position: relative;
+  width:150px;
+  box-shadow: 0 4px 8px 0 rgb(48, 48, 48,0.25), 0 6px 20px 0 rgb(48, 48, 48,0.19);
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+/* @media screen and (max-width: 700px) {
+    .row, .navbar {   
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }  */
+
+    /* About Me */
+
+
+.about_me{
+  background-color:rgb(48, 48, 48) ;
+} 
+.section__title--about{
+  color: var(--clr-light);
+  font-weight: var(--fw-regular);
+  text-align: center;
+} 
+.section__subtitle--about{
+  color: #c2bfbf;
+  text-align: center;
+  font-weight: 100;
+  font-size: 25px;
+} 
+#about{
+  background-color: var(--clr-dark);
+}
+.about_me{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1%;
+} 
+.single_box{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 330px;
+  height: 345px;
+  border-radius: 4px;
+  background-color: var(--clr-light);
+  text-align: center;
+  margin: 20px;
+  padding: 18px;
+  transition: 1.2s;
+}
+.img_area{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  padding:10px ;
+  -webkit-background-size:cover ;
+  background-size: cover;
+  background-position: center center;
+
+}
+.single_box:nth-child(1) .img_area{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3IU6OXgPr2EDfHAddtnsRypU71lnraOlxZw&usqp=CAU);
+}
+/* https://static.dribbble.com/users/1954416/screenshots/6914376/girl-logo.png */
+.single_box:nth-child(2) .img_area{
+  background-image: url(https://static.makeuseof.com/wp-content/uploads/2019/03/whats-coding-994x400.jpg);
+}
+.single_box:nth-child(3) .img_area{
+  background-image: url(https://i.ytimg.com/vi/ViNHLO6Ozsk/maxresdefault.jpg);
+}
+
+.header_text{
+  font-size: var(--fs-h3);
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  line-height: 15px;
+  color: var(--clr-darkaccent);
+}
+.img_text p{
+  font-size: var(--fs-body);
+  line-height: 22px;
+  text-align: none;
+}
+.img_text{
+  padding: 1%;
+}
+
+
+.single_box:hover{
+  color: var(--clr-light);
+  background-color: var(--clr-accent);
+}
+
+.progress_label{
+  font-weight: 500;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.progress_styling{
+  width: 50%;
+  height: 15px;
+}
+
+progress {
+  border: 0.3px solid rgb(233, 231, 231);
+  border-radius: 20px;
+  width: 350px;
+  height: 40px;
+}
+  
+
+progress {
+  color: var(--clr-darkaccent);
+}
+      
+progress::-webkit-progress-value {
+  border: 0.1px solid rgb(233, 231, 231);
+  border-radius: 25px;
+  background: var(--clr-accent);
+}
+progress::-webkit-progress-bar {
+  border: 0.1px solid rgb(233, 231, 231);
+  border-radius: 25px;
+  background: rgb(233, 231, 231);
+}
+
+/* gallery */
+
+.my_gallery{
+  background-color: var(--clr-accent);
+  padding: 2.5%;
+
+}
+.section__title--gallery{
+  text-align: center;
+}
+.section__subtitle--gallery{
+  text-align: center;
+  color: #131212;
+  font-weight: 200;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 6px;
+  margin-left: 0.6%;
+}
+      
+      /* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 6px;
+}
+      
+.column img {
+  margin-top: 25px;
+  vertical-align: middle;
+  border: 4px solid var(--clr-dark);
+  border-radius: 6px;
+}
+.con{
+  position: relative;
+}
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgb(233, 231, 231); 
+  width: 95%;
+  transition: .6s ease;
+  opacity:0;
+  color: rgb(233, 231, 231);
+  font-size: var(--fs-body);
+  padding: 20px;
+  text-align: center;
+}
+
+.con:hover .overlay {
+  opacity: 1;
+}
+header{
+  /* background-color: var(--clr-dark); */
+  background-image: url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* background-blend-mode: screen; */
+  position: relative;
+  height: 35vh;
+  margin: 0;
+  color: var(--clr-light);
+}
+header::after{
+  content: "";
+  background-color: var(--clr-dark);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header *{
+  position: relative;
+  z-index: 1;
+}
+.section__subtitle--intro{
+  text-align: center;
+  color: var(--clr-accent);
+}
+.details_info{
+  position: absolute;
+  left: 22em;
+  top:2em; 
+  line-height: 20px;
+
+}
+footer{
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  text-align: center;
+  padding: 10px;
+  font-family: var(--ff-primary);
+}
+footer .fa-heart{
+  color: rgb(173, 70, 70);
+}
+.Contact_Me{
+  background-color: var(--clr-dark);
+  padding: 30px;
+}
+.section__title--social{
+  color: var(--clr-light);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  text-align: center;
+
+}
+.section__subtitle--contact{
+  text-align: center;
+  color: var(--clr-accent);
+  margin-bottom: 20px;
+}
+.social_list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+
+}
+.social_list a{
+  
+  color: var(--clr-light);
+  font-size: var(--fs-body);
+  margin: 5px 10px;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 6s;
+  
+}
+.social_list a:hover{
+  color: var(--clr-accent);
+}
+@media(max-width:450px){
+  .section{
+    padding: 20px;
+  }
+  .social_list{
+    flex-direction: column;
+  }
+}
+      
+      /* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 900px) {
+.column {
+  flex: 50%;
+  max-width: 50%;
+  
+  }
+ }
+      
+      /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+.column {
+  flex: 90%;
+  margin-left: 7%;
+  max-width: 90%;
+}
+
+
+
